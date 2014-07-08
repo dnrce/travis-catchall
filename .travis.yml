@@ -15,7 +15,3 @@ gemfile:
   - gemfiles/rails.4.1.x.gemfile
 
 script: "bundle exec rake spec"
-
-branches:
-  only:
-    - master
