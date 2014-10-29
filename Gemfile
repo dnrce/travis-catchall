@@ -1,4 +1,6 @@
-source :gemcutter
+source 'https://rubygems.org'
+
+gemspec
 
 activerecord_version = ENV['ACTS_AS_FU_ACTIVERECORD_VERSION']
 
@@ -11,10 +13,4 @@ elsif activerecord_version && activerecord_version.strip != ""
   gem "activerecord", activerecord_version
 else
   gem "activerecord"
-end
-
-gem "sqlite3-ruby"
-
-group :development do
-  gem "rspec", "~>1"
 end
