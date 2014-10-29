@@ -112,8 +112,10 @@ describe ActsAsFu do
           
           if ActiveRecord::VERSION::MAJOR < 3
             named_scope :pictures, :conditions => { :type => "Picture" }
-          else
+          elsif ActiveRecord::VERSION::MAJOR < 4
             scope :pictures, :conditions => { :type => "Picture" }
+          else
+            scope :pictures, -> { where(:type => "Picture") }
           end
         end
         
