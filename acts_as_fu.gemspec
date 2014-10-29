@@ -6,7 +6,6 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Pat Nakajima"]
-  s.date = %q{2011-09-20}
   s.email = %q{patnakajima@gmail.com}
   s.files = ["lib/acts_as_fu", "lib/acts-as-fu.rb", "lib/acts_as_fu/base.rb", "lib/acts_as_fu.rb", "Rakefile", "Gemfile", "prerelease"]
   s.has_rdoc = true
