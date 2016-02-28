@@ -7,7 +7,7 @@ gem "coffee-rails", "~> 4.2"
 #gem 'json'
 
 # todo: remove xml api
-gem 'actionpack-xml_parser', '>=1.0.1'
+gem "actionpack-xml_parser", "~> 2.0"
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', group: :therubyracer

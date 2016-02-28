@@ -29,8 +29,9 @@ GEM
       rack-test (~> 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionpack-xml_parser (1.0.1)
-      actionpack (>= 4.0.0.rc1)
+    actionpack-xml_parser (2.0.0)
+      actionpack (~> 5.x)
+      railties (~> 5.x)
     actionview (5.0.0.1)
       activesupport (= 5.0.0.1)
       builder (~> 3.1)
@@ -283,7 +284,7 @@ PLATFORMS
 DEPENDENCIES
   RedCloth
   aasm
-  actionpack-xml_parser (>= 1.0.1)
+  actionpack-xml_parser (~> 2.0)
   acts_as_list
   aruba (>= 0.5.4)
   bcrypt (~> 3.1.7)
