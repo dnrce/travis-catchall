@@ -1,8 +1,8 @@
 class TodosController < ApplicationController
 
-  skip_before_filter :login_required, :only => [:index, :tag]
-  prepend_before_filter :login_or_feed_token_required, :only => [:index, :tag]
-  append_before_filter :find_and_activate_ready, :only => [:index, :list_deferred]
+  skip_before_action :login_required, :only => [:index, :tag]
+  prepend_before_action :login_or_feed_token_required, :only => [:index, :tag]
+  append_before_action :find_and_activate_ready, :only => [:index, :list_deferred]
 
   protect_from_forgery :except => :check_deferred
 
@@ -43,9 +43,9 @@ class TodosController < ApplicationController
         render :action => 'index'.freeze
       end
       format.text  do
-        # somehow passing Mime::TEXT using content_type to render does not work
-        headers['Content-Type'.freeze]=Mime::TEXT.to_s
-        render :content_type => Mime::TEXT
+        # somehow passing Mime[:text] using content_type to render does not work
+        headers['Content-Type'.freeze]=Mime[:text].to_s
+        render :content_type => Mime[:text]
       end
       format.xml do
         @xml_todos = params[:limit_to_active_todos] ? @not_done_todos : @todos
@@ -544,7 +544,7 @@ class TodosController < ApplicationController
         render
       end
 
-      format.xml { render :text => '200 OK. Action deleted.', :status => 200 }
+      format.xml { render :body => '200 OK. Action deleted.', :status => 200 }
 
     end
   end
@@ -670,7 +670,7 @@ class TodosController < ApplicationController
         cookies[:mobile_url]= {:value => request.fullpath, :secure => SITE_CONFIG['secure_cookies']}
       }
       format.text {
-        render :action => 'index', :layout => false, :content_type => Mime::TEXT
+        render :action => 'index', :layout => false, :content_type => Mime[:text]
       }
     end
   end
@@ -710,7 +710,7 @@ class TodosController < ApplicationController
     tags_all = tags_all - tags_beginning
 
     respond_to do |format|
-      format.autocomplete { render :text => for_autocomplete(tags_beginning+tags_all, params[:term]) }
+      format.autocomplete { render :body => for_autocomplete(tags_beginning+tags_all, params[:term]) }
     end
   end
 
@@ -1212,7 +1212,7 @@ end
   def update_tags
     if params[:tag_list]
       @todo.tag_with(params[:tag_list])
-      @todo.tags(true) #force a reload for proper rendering
+      @todo.tags.reload #force a reload for proper rendering
     end
   end
 
