@@ -78,7 +78,7 @@ class ActionController::TestCase
   end
 
   def ajax_create(name)
-    post :create, xhr: true, get_model_class.downcase => {:name => name}
+    post :create, xhr: true, params: { get_model_class.downcase => {:name => name} }
   end
 
   def assert_number_of_items_in_rss_feed(expected)
