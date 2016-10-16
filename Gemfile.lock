@@ -43,6 +43,11 @@ GEM
       globalid (>= 0.3.6)
     activemodel (5.0.0.1)
       activesupport (= 5.0.0.1)
+    activemodel-serializers-xml (1.0.1)
+      activemodel (> 5.x)
+      activerecord (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (5.0.0.1)
       activemodel (= 5.0.0.1)
       activesupport (= 5.0.0.1)
@@ -299,6 +304,7 @@ DEPENDENCIES
   RedCloth
   aasm
   actionpack-xml_parser (~> 2.0)
+  activemodel-serializers-xml (~> 1.0.1)
   acts_as_list
   aruba (>= 0.5.4)
   bcrypt (~> 3.1.7)
